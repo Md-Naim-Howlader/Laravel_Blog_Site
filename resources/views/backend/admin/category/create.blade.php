@@ -13,13 +13,13 @@
 
             <form action="{{route('category.store')}}" method="POST">
                 @csrf
-                <label class="form-label">Category Name:</label>
-                <input value="{{old('category_name')}}" class="form-control mb-4 @error('name') is-invalid  @enderror" type="text" name="category_name" placeholder="Enter Category Name...">
-
-                @error('category_name')
+                <div class="mb-4">
+                    <label class="form-label">Category Name:</label>
+                    <input value="{{old('category_name')}}" class="form-control @error('category_name') is-invalid  @enderror" type="text" name="category_name" placeholder="Enter Category Name...">
+                    @error('category_name')
                         <div class="text-danger">{{ucwords($message)}}</div>
                 @enderror
-
+                </div>
                 <input class="btn btn-success" type="submit" value="Create">
             </form>
         </div>

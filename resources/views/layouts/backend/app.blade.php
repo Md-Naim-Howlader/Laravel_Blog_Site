@@ -85,6 +85,8 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
+<!-- jquery  -->
+<script src="{{ asset('backend') }}/plugins/jquery/jquery-3.6.0.min.js"></script>
 <script src="{{ asset('/backend') }}/plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="{{ asset('/backend') }}/plugins/jquery-ui/jquery-ui.min.js"></script>

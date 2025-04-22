@@ -45,9 +45,10 @@ class PostController extends Controller
         $catId = DB::table("subcategories")->where("id", $request->subcategory_id)->first()->category_id;
         $slug = Str::of($request->title)->slug("-");
         $data = [
-            "subcategory_id" => $request->subcategory_id,
             "category_id" => $catId,
+            "subcategory_id" => $request->subcategory_id,
             "user_id" => Auth::id(),
+            "title" => $request->title,
             "slug" => $slug,
             "author" => $request->author,
             "description" => $request->description,

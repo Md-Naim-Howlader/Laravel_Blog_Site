@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\{Category, Post, Subcategory};
+use Intervention\Image\Facades\Image;
+use App\Models\{Category, Post, Subcategory, Inbox};
 use Illuminate\Support\Facades\Cache;
+
 use DB;
 
 class FrontendController extends Controller
@@ -52,6 +54,40 @@ class FrontendController extends Controller
     public function allpost() {
         $posts = Post::paginate(3);
         return view("frontend.allpost", compact("posts"));
+    }
+     public function contactStore(Request $request) {
+        $validated = $request->validate([
+            'full_name' => 'required',
+            'email' => 'required',
+            'subject' => 'required',
+            'message' => 'required',
+            'photo' => 'required',
+        ]);
+        if($validated) {
+            $userInfo = [
+                'full_name' => $request->full_name,
+                'email' => $request->email,
+                'subject' => $request->subject,
+                'message' => $request->message
+            ];
+            $photo = $request->photo;
+
+            if($photo) {
+                $photoName = uniqid() . '.' .$photo->getClientOriginalExtension();
+                $image = Image::make($photo);
+                $path = storage_path('app/public/uploads/inbox-user/');
+                $image->save($path . $photoName);
+                $userInfo["photo"] = "storage/uploads/" . $photoName;
+            } else {
+                $userInfo["image"] = "storage/uploads/inbox-user/empty-user.webp";
+            }
+            $insert_user = Inbox::create($userInfo);
+            if($insert_user) {
+                return redirect()->back()->with('success', 'Thank you for contacting us. We’ll get back to you soon.');
+            } else {
+                return redirect()->back()->with('error', 'Message could not be submitted. Please try again.');
+            }
+        }
     }
 
 }

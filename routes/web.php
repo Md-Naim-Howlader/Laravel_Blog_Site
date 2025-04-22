@@ -16,16 +16,14 @@ use App\Http\Controllers\FrontendController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('home');
-// });
+
 Route::get("/", [FrontendController::class, 'index']);
 Route::get("post/{id}", [FrontendController::class, 'getPostById'])->name("frontend.post");
 Route::get("posts/{id}", [FrontendController::class, 'getCategoryPosts'])->name("frontend.posts");
 Route::get('/search', [FrontendController::class, 'search'])->name('posts.search');
 Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
 Route::get('/posts', [FrontendController::class, 'allpost'])->name('allpost');
-
+Route::post("/contact/store", [FrontendController::class, "contactStore"])->name("contact.store");
 
 
 Route::get('/dashboard', function () {

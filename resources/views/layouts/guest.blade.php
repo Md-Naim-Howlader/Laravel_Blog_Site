@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="{{asset('backend')}}/dist/css/adminlte.min.css">
   <!-- Toastr CSS -->
 <link rel="stylesheet" href="{{ asset('backend') }}/plugins/toastr/toastr.min.css">
-
+ <!-- Styles -->
 </head>
 
 <body class="hold-transition login-page">

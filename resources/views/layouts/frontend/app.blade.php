@@ -8,7 +8,8 @@
     $site = SiteSetting::find("1");
 
     $categories = DB::table('categories')->get();
-    $posts = Post::latest()->take(5)->get()->shuffle();
+    $posts = Post::latest()->take(5)->get();
+
 
 @endphp
 <!DOCTYPE html>
@@ -21,7 +22,8 @@
     <title>DevOrbit</title>
 
     <link rel="shortcut icon" style="border-radius: 100%" href="{{asset($site->favicon)}}" type="image/x-icon">
-
+    <!-- Font Awesome -->
+ <link rel="stylesheet" href="{{ asset('/backend') }}/plugins/fontawesome-free/css/all.min.css">
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
@@ -54,24 +56,29 @@
 
 @include("partials.frontend.footer")
 
+<!-- jquery  -->
+<script src="{{ asset('backend') }}/plugins/jquery/jquery-3.6.0.min.js"></script>
 <!-- Toastr JS -->
 <script src="{{ asset('backend') }}/plugins/toastr/toastr.min.js"></script>
 
 <!-- SweetAlert2 JS -->
 <script src="{{ asset('backend') }}/plugins/sweetalert2/sweetalert2.all.min.js"></script>
 <script>
-    if(session('success')){
+    @if (session('success'))
         toastr.success("{{ session('success') }}");
-    }
-    if (session('error')) {
-      toastr.error("{{ session('error') }}");
-    }
-    if (session('warning')) {
-      toastr.warning("{{ session('warning') }}");
-    }
-    if (session('info')) {
-      toastr.info("{{ session('info') }}");
-    }
+    @endif
+
+    @if (session('error'))
+        toastr.error("{{ session('error') }}");
+    @endif
+
+    @if (session('warning'))
+        toastr.warning("{{ session('warning') }}");
+    @endif
+
+    @if (session('info'))
+        toastr.info("{{ session('info') }}");
+    @endif
 
 </script>
 <script src="{{ asset('backend/sweetalert/sweetalert2.all.min.js') }}"></script>
