@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@layer components {
+    .btn {
+        @apply px-4 block border-0 text-center w-2/12 py-3 text-base text-white cursor-pointer transition-colors;
+    }
+    .btn-primary {
+        @apply bg-blue-500 rounded hover:bg-blue-800;
+    }
+    .btn-danger {
+        @apply bg-red-500 rounded hover:bg-red-700;
+    }
+    .btn-warning {
+        @apply bg-yellow-500 rounded hover:bg-yellow-700;
+    }
+    .btn-success {
+        @apply bg-green-500 rounded hover:bg-green-700;
+    }
+    .form-control {
+        @apply mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-lg;
+    }
+    .form-label {
+        @apply block text-lg font-medium text-gray-500;
+    }
+    .form-control-2 {
+        @apply inline-block h-auto py-3 mt-0 border border-gray-300 rounded-s-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-transparent shadow-sm text-gray-700 placeholder-gray-400;
+    }
+    .active {
+        @apply font-bold text-blue-600 border-b-2 border-b-blue-600 underline-offset-4;
+    }
+    .swiper-button-prev,
+    .swiper-button-next {
+        @apply w-8 h-8  bg-white/30 rounded-full flex items-center justify-center transition-all duration-300;
+    }
+
+    .swiper-button-prev:hover,
+    .swiper-button-next:hover {
+        @apply bg-white text-black shadow;
+    }
+    .swiper-button-prev::after,
+    .swiper-button-next::after {
+        font-size: 16px !important;
+        color: #fff;
+    }
+    .swiper-button-prev:hover::after,
+    .swiper-button-next:hover::after {
+        color: blue;
+    }
+}
+@tailwind utilities;
