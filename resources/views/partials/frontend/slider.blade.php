@@ -1,6 +1,6 @@
 <div class="w-full">
     <!-- Full width container -->
-    <div class="swiper mySwiper w-full h-2/3 relative">
+    <div class="swiper mySwiper w-full h-[60vh] relative">
         <!-- Full-width slides -->
         <div class="swiper-wrapper">
             <div class="swiper-slide">

@@ -36,6 +36,7 @@
 
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
+
     <!-- Styles -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -55,7 +56,14 @@
     </main>
 
 @include("partials.frontend.footer")
-
+   <!-- jQuery -->
+    <script src="{{asset('backend')}}/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="{{asset('backend')}}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="{{asset('backend')}}/dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="{{asset('backend')}}/dist/js/demo.js"></script>
 <!-- jquery  -->
 <script src="{{ asset('backend') }}/plugins/jquery/jquery-3.6.0.min.js"></script>
 <!-- Toastr JS -->

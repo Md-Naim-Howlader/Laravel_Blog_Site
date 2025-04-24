@@ -26,6 +26,7 @@ Route::get('/posts', [FrontendController::class, 'allpost'])->name('allpost');
 Route::post("/contact/store", [FrontendController::class, "contactStore"])->name("contact.store");
 
 
+
 Route::get('/dashboard', function () {
     return view('backend.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

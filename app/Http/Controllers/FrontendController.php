@@ -77,7 +77,7 @@ class FrontendController extends Controller
                 $image = Image::make($photo);
                 $path = storage_path('app/public/uploads/inbox-user/');
                 $image->save($path . $photoName);
-                $userInfo["photo"] = "storage/uploads/" . $photoName;
+                $userInfo["photo"] = "storage/uploads/inbox-user/" . $photoName;
             } else {
                 $userInfo["image"] = "storage/uploads/inbox-user/empty-user.webp";
             }

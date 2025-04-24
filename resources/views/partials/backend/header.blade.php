@@ -1,3 +1,10 @@
+@php
+    use Illuminate\Support\Facades\DB;
+    use App\Models\Inbox;
+    use Illuminate\Support\Str;
+    $totalUnseenInbox = Inbox::where('status', "unseen")->count();
+    $latestInbox = Inbox::where('status', 'unseen')->latest()->take(3)->get();
+@endphp
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 
@@ -66,58 +73,29 @@
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="far fa-comments"></i>
-          <span class="badge badge-danger navbar-badge">3</span>
+          <span class="badge badge-danger navbar-badge">{{$totalUnseenInbox}}</span>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <a href="#" class="dropdown-item">
+          @foreach ($latestInbox as $lInbox)
+            <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="{{ asset('/backend') }}/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+              <img src="{{ asset($lInbox->photo) }}" alt="User Avatar" class="img-size-50 mr-3 img-circle">
               <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  Brad Diesel
-                  <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+                <h3 class="dropdown-item-title text-blue-500">
+                  {{$lInbox->full_name}}
+                  <span class="float-right text-sm "><i class="fas fa-dot-circle text-blue-500"></i></span>
                 </h3>
-                <p class="text-sm">Call me whenever you can...</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+                <p class="text-sm">{{ Str::limit(strip_tags(html_entity_decode($lInbox->message)), 26, '...') }}</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i>{{$lInbox->created_at->diffForHumans()}}</p>
               </div>
             </div>
             <!-- Message End -->
           </a>
+          @endforeach
+
           <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="{{ asset('/backend') }}/dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  John Pierce
-                  <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">I got your message bro</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="{{ asset('/backend') }}/dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  Nora Silvester
-                  <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">The subject goes here</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+          <a href="{{route('admin.mailbox')}}" class="dropdown-item dropdown-footer hover:bg-slate-400 hover:text-white">See All Messages <i class="fas fa-arrow-right    "></i></a>
         </div>
       </li>
       <!-- Notifications Dropdown Menu -->

@@ -84,10 +84,13 @@
 </div>
 <!-- ./wrapper -->
 
-<!-- jQuery -->
+
 <!-- jquery  -->
 <script src="{{ asset('backend') }}/plugins/jquery/jquery-3.6.0.min.js"></script>
-<script src="{{ asset('/backend') }}/plugins/jquery/jquery.min.js"></script>
+
+<!-- Bootstrap JS -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 <!-- jQuery UI 1.11.4 -->
 <script src="{{ asset('/backend') }}/plugins/jquery-ui/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
@@ -180,9 +183,6 @@
         toastr.info("{{ session('info') }}");
     @endif
 </script>
-
-
-
 <script>
   $(document).on("click", "#delete", function (e) {
     e.preventDefault();  // Prevent default behavior

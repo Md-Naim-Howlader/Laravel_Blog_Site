@@ -1,5 +1,5 @@
 <?php
-use App\Http\Controllers\Admin\{CategoryController,SubCategoryController, PostController, PageController, SiteSettingController};
+use App\Http\Controllers\Admin\{CategoryController,SubCategoryController, PostController, PageController, SiteSettingController, InboxController};
 use App\Http\Controllers\{FrontendController, BackendController, UserController};
 use Illuminate\Support\Facades\Route;
 
@@ -44,3 +44,7 @@ Route::put("site/update/social-media", [SiteSettingController::class, "updateSoc
 
 Route::get("site/edit/copyright", [SiteSettingController::class, "editCopyright"])->name("site.edit-copyright");
 Route::put("site/update/copyright", [SiteSettingController::class, "updateCopyright"])->name("site.update-copyright");
+
+// inbox routes
+Route::get("/admin/mailbox",  [InboxController::class, "getAllMail"])->name("admin.mailbox");
+Route::get("/admin/readmail/{id}",  [InboxController::class, "getMailById"])->name("admin.readmail");
