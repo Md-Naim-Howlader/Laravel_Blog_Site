@@ -1,3 +1,9 @@
+@php
+    use Illuminate\Support\Facades\DB;
+    use App\Models\Inbox;
+    use Illuminate\Support\Str;
+    $totalUnseenInbox = Inbox::where('status', "unseen")->count();
+@endphp
 <div class="card">
                 <div class="card-header">
                   <h3 class="card-title">Folders</h3>
@@ -15,9 +21,9 @@
                 <div class="card-body p-0">
                   <ul class="nav nav-pills flex-column">
                     <li class="nav-item active">
-                      <a href="#" class="nav-link">
+                      <a href="{{route('admin.mailbox')}}" class="nav-link">
                         <i class="fas fa-inbox"></i> Inbox
-                        <span class="badge bg-primary float-right">12</span>
+                        <span class="badge bg-primary float-right">{{$totalUnseenInbox}}</span>
                       </a>
                     </li>
                     <li class="nav-item">

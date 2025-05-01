@@ -73,11 +73,13 @@
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="far fa-comments"></i>
-          <span class="badge badge-danger navbar-badge">{{$totalUnseenInbox}}</span>
+          @if ($totalUnseenInbox)
+            <span class="badge badge-danger navbar-badge">{{$totalUnseenInbox}}</span>
+          @endif
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
           @foreach ($latestInbox as $lInbox)
-            <a href="#" class="dropdown-item">
+            <a href="{{route('admin.readmail', $lInbox->id)}}" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
               <img src="{{ asset($lInbox->photo) }}" alt="User Avatar" class="img-size-50 mr-3 img-circle">

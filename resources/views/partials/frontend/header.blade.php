@@ -1,6 +1,6 @@
 
 <header class="shadow-md bg-white sticky top-0">
-        <div class="container mx-auto sm:flex justify-between items-center py-5 ">
+        <div class="container mx-auto sm:flex justify-between items-center py-4 ">
             <a class="flex items-center gap-1" href="/"><img class="w-20" src="{{asset($site->logo)}}" alt="{{$site->site_name}}"><h2 class="text-4xl font-bold text-slate-950">{{$site->site_name}}</h2></a>
 
 

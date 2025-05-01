@@ -46,5 +46,8 @@ Route::get("site/edit/copyright", [SiteSettingController::class, "editCopyright"
 Route::put("site/update/copyright", [SiteSettingController::class, "updateCopyright"])->name("site.update-copyright");
 
 // inbox routes
-Route::get("/admin/mailbox",  [InboxController::class, "getAllMail"])->name("admin.mailbox");
-Route::get("/admin/readmail/{id}",  [InboxController::class, "getMailById"])->name("admin.readmail");
+Route::get("/admin/mail/mailbox",  [InboxController::class, "index"])->name("admin.mailbox");
+Route::get("/admin/mail/read/{id}",  [InboxController::class, "show"])->name("admin.readmail");
+Route::get("/admin/mail/compose",  [InboxController::class, "create"])->name("admin.composemail");
+Route::get("/admin/mail/reply/{id}",  [InboxController::class, "replyMail"])->name("admin.replymail");
+Route::get("/admin/mail/delete/{id}",  [InboxController::class, "delete"])->name("admin.deletemail");

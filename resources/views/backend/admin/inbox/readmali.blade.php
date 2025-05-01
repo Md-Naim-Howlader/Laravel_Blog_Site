@@ -1,8 +1,10 @@
     @php
          use Illuminate\Support\Str;
     @endphp
+
+
     <x-backend.app-layout>
-          <!-- Content Header (Page header) -->
+        <!-- Content Header (Page header) -->
         <section class="content-header">
           <div class="container-fluid">
             <div class="row mb-2">
@@ -23,12 +25,12 @@
         <section class="content">
           <div class="row">
              <div class="col-md-3">
-              <a href="" class="btn btn-primary btn-block mb-3 w-full"
+              <a href="{{route('admin.mailbox')}}" class="btn btn-primary btn-block mb-3 w-full"
                 ><i class="fas fa-arrow-left    "></i> Back to Inbox</a
               >
               @include("partials.backend.mailSidebar")
             </div>
-            <div class="col-md-9">
+            <div class="col-md-9" id="mailcontent">
             <div class="card card-primary card-outline">
                 <div class="card-header">
                 <h3 class="card-title">Read Mail</h3>
@@ -49,24 +51,20 @@
                 <div class="mailbox-controls flex items-center justify-between gap-3 ps-4 py-3 border-b border-b-gray-200">
                     <div class="flex gap-5">
                         <!-- Check all button -->
-                        <button
-                        type="button"
-                        class="text-blue-500 bg-gray-200 shadow-xl border rounded-sm px-2 py-1 transition-colors hover:bg-white checkbox-toggle" title="Select all">
-                        <i class="far fa-square"></i>
-                        </button>
+
                         <div class="btn-group  flex items-center gap-5">
-                            <button type="button" class="text-danger bg-gray-200 shadow-xl border rounded-sm px-2 py-1 transition-colors hover:bg-white" title="Delete">
+                            <a href="{{route('admin.deletemail', $inbox->id)}}" id="delete" class="text-danger bg-gray-200 shadow-xl border rounded-sm px-2 py-1 transition-colors hover:bg-white" title="Delete">
                                 <i class="far fa-trash-alt"></i>
-                            </button>
-                            <button type="button" class="text-blue-500 bg-gray-200 shadow-xl border rounded-sm px-2 py-1 transition-colors hover:bg-white" title="Reply">
+                            </a>
+                            <a href="{{route('admin.replymail', $inbox->id)}}" class="text-blue-500 bg-gray-200 shadow-xl border rounded-sm px-2 py-1 transition-colors hover:bg-white" title="Reply">
                                 <i class="fas fa-reply"></i>
-                            </button>
+                            </a>
                             <button type="button" class="text-blue-500 bg-gray-200 shadow-xl border rounded-sm px-2 py-1 transition-colors hover:bg-white" title="Share">
                                 <i class="fas fa-share"></i>
                             </button>
                         </div>
                         <!-- /.btn-group -->
-                        <button type="button" class="text-blue-500 bg-gray-200 shadow-xl border rounded-sm px-2 py-1 transition-colors hover:bg-white" title="Print">
+                        <button type="button" onclick="window.print()" type="button" class="text-blue-500 bg-gray-200 shadow-xl border rounded-sm px-2 py-1 transition-colors hover:bg-white" title="Print">
                        <i class="fas fa-print"></i>
                         </button>
                     </div>
@@ -75,6 +73,7 @@
                   </div>
                 <div class="mailbox-read-message">
                      {{strip_tags(html_entity_decode($inbox->message)) }}
+                     {{-- {{$inbox->message}} --}}
                 </div>
                 <!-- /.mailbox-read-message -->
                 </div>
@@ -104,7 +103,7 @@
                     </div>
                     </li>
                     <li>
-                    <span class="mailbox-attachment-icon has-img"><img src="../../dist/img/photo1.png" alt="Attachment"></span>
+                    <span class="mailbox-attachment-icon has-img"><img src="{{asset('/backend')}}/dist/img/photo1.png" alt="Attachment"></span>
 
                     <div class="mailbox-attachment-info">
                         <a href="#" class="mailbox-attachment-name"><i class="fas fa-camera"></i> photo1.png</a>
@@ -115,7 +114,7 @@
                     </div>
                     </li>
                     <li>
-                    <span class="mailbox-attachment-icon has-img"><img src="../../dist/img/photo2.png" alt="Attachment"></span>
+                    <span class="mailbox-attachment-icon has-img"><img src="{{asset('/backend')}}/dist/img/photo2.png" alt="Attachment"></span>
 
                     <div class="mailbox-attachment-info">
                         <a href="#" class="mailbox-attachment-name"><i class="fas fa-camera"></i> photo2.png</a>

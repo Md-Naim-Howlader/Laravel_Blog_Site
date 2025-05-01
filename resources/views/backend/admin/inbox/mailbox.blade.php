@@ -1,6 +1,7 @@
     @php
          use Illuminate\Support\Str;
     @endphp
+
     <x-backend.app-layout>
           <!-- Content Header (Page header) -->
         <section class="content-header">
@@ -23,7 +24,7 @@
         <section class="content">
           <div class="row">
             <div class="col-md-3">
-              <a href="" class="btn btn-primary btn-block mb-3 w-full"
+              <a href="{{route('admin.composemail')}}" class="btn btn-primary btn-block mb-3 w-full"
                 >Compose</a
               >
               @include("partials.backend.mailSidebar")
@@ -72,7 +73,7 @@
                             </button>
                         </div>
                         <!-- /.btn-group -->
-                        <button type="button" class="text-blue-500 bg-gray-200 shadow-xl border rounded-sm px-2 py-1 transition-colors hover:bg-white" title="Sync">
+                        <button id="sync" type="button" class="text-blue-500 bg-gray-200 shadow-xl border rounded-sm px-2 py-1 transition-colors hover:bg-white" title="Sync">
                         <i class="fas fa-sync-alt"></i>
                         </button>
                     </div>
@@ -88,21 +89,25 @@
                           <tr class=" hover:bg-gray-100 transition">
                           <td>
                               <div class="icheck-primary">
-                                  <input onclick="event.stopPropagation()" type="checkbox" value="" id="check1"/>
-                                  <label for="check1"></label>
+                                  <input type="checkbox" value="" id="check{{$inbox->id}}"/>
+                                  <label for="check{{$inbox->id}}"></label>
                               </div>
                           </td>
                           <div>
-                              <td class="mailbox-star">
-                              <a href="#" >
-                                  <i class="fas fa-dot-circle text-blue-500"></i>
-                              </a>
+                         <td class="flex gap-2 items-center">
+                            <img src="{{asset($inbox->photo)}}" class="h-auto w-[40px] rounded-circle bg-white shadow-md" alt="{{$inbox->full_name}}">
+                             <i class="far fa-star text-warning cursor-pointer mailbox-star"></i>
                           </td>
+
                           <td class="mailbox-name">
                               <a class="text-blue-500 cursor-pointer" href="{{route('admin.readmail', $inbox->id)}}" >{{$inbox->full_name}}</a>
                           </td>
                           <td onclick="window.location = '{{route('admin.readmail', $inbox->id)}}'" class="mailbox-subject cursor-pointer">
-                              <b>{{$inbox->subject}}</b> - {{ Str::limit(strip_tags(html_entity_decode($inbox->message)), 26, '...') }}
+                              <span class="@if ($inbox->status == "seen")
+                                font-semibold text-gray-600
+                              @else
+                                font-bold
+                              @endif">{{$inbox->subject}}</span> - {{ Str::limit(strip_tags(html_entity_decode($inbox->message)), 26, '...') }}
                           </td>
                           <td class="mailbox-attachment"></td>
                           <td class="mailbox-date">{{$inbox->created_at->diffForHumans()}}</td>
@@ -138,7 +143,7 @@
                             </button>
                         </div>
                         <!-- /.btn-group -->
-                        <button type="button" class="text-blue-500 bg-gray-200 shadow-xl border rounded-sm px-2 py-1 transition-colors hover:bg-white" title="Sync">
+                        <button id="sync" type="button" class="text-blue-500 bg-gray-200 shadow-xl border rounded-sm px-2 py-1 transition-colors hover:bg-white" title="Sync">
                         <i class="fas fa-sync-alt"></i>
                         </button>
                     </div>
@@ -182,18 +187,38 @@
           $(this).data("clicks", !clicks);
         });
 
+        // handle sync
+        $("#sync").click(function () {
+           //Uncheck all checkboxes
+            $(".mailbox-messages input[type='checkbox']").prop(
+              "checked",
+              false
+            );
+            $(".checkbox-toggle .far.fa-check-square")
+              .removeClass("fa-check-square")
+              .addClass("fa-square");
+
+              // sync star
+          $star = $(".mailbox-star");
+          if($star.hasClass("fas")) {
+            $star.removeClass("fas").addClass("far");
+          }
+
+        });
         //Handle starring for font awesome
         $(".mailbox-star").click(function (e) {
           e.preventDefault();
-          //detect type
-          var $this = $(this).find("a > i");
-          var fa = $this.hasClass("fa");
 
-          //Switch states
-          if (fa) {
-            $this.toggleClass("fa-star");
-            $this.toggleClass("fa-star-o");
+          let $this = $(this);
+
+          // Toggle between outline and filled star
+          if ($this.hasClass("far")) {
+            $this.removeClass("far").addClass("fas"); // fill star
+          } else {
+            $this.removeClass("fas").addClass("far"); // outline star
           }
         });
+
+
       });
     </script>
