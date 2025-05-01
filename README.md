@@ -1,66 +1,101 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Laravel Blog Site Development
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A complete Blog Content Management System (CMS) built with Laravel. It includes full control over blog content, categories, pages, media, and site settings — from both frontend and backend.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 🚀 Frontend Features
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Dynamic logo, site name, and copyright
+- Dynamic page menu with active page highlighting
+- Search functionality for posts
+- Dynamic blog post listing
+- Latest posts widget
+- Related posts under single post
+- Dynamic categories and subcategories
+- User authentication (Login, Register, Forgot Password)
+- Responsive design (mobile/tablet friendly)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## 🛠 Backend Features (Admin Panel)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- Admin dashboard with summary
+- Site settings: logo, favicon, site name, copyright
+- Theme switching option
+- Page management: Add, edit, delete custom pages
+- Category & subcategory management
+- Post management with image upload, slug, tags
+- Inbox message system:
+  - View latest 3 messages in dropdown
+  - Full inbox list
+  - Read, delete, reply messages
+  - Bulk sync or delete messages
+- User profile and user list
+- Toastr notifications for success/failure
+- SweetAlert2 confirmation for delete actions
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+---
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 🧪 Technologies Used
 
-## Laravel Sponsors
+### 🔤 Languages
+- PHP
+- HTML5
+- CSS3
+- JavaScript
+- SQL (MySQL)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### 🧰 Framework & Platform
+- [Laravel 10](https://laravel.com/)
+- [Bootstrap 5](https://getbootstrap.com/) / Tailwind CSS 
+- Laravel Blade Templating Engine
 
-### Premium Partners
+### 📦 PHP Packages
+- [Intervention/Image](http://image.intervention.io/) – Image resizing and manipulation
+- [Breeze ] 
+- [Toastr](https://codeseven.github.io/toastr/) – Notification popup
+- [SweetAlert2](https://sweetalert2.github.io/) – Confirmation dialog
+- [Laravel File Storage](https://laravel.com/docs/10.x/filesystem) – For image/file upload
+- Laravel Validator, Auth, Route, Migration (built-in components)
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+### ✨ JavaScript Libraries
+- jQuery
+- Toastr.js
+- SweetAlert2
+- Summernote
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-## Code of Conduct
+## ⚙️ Installation & Setup
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```bash
+# 1. Clone the repository
+git clone https://github.com/Md-Naim-Howlader/Laravel_Blog_Site.git
+cd Laravel_Blog_Site
 
-## Security Vulnerabilities
+# 2. Install PHP dependencies
+composer install
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+# 3. Install Node.js dependencies
+npm install
 
-## License
+# 4. Build assets
+npm run dev   # or npm run build for production
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+# 5. Create .env file
+cp .env.example .env
+
+# 6. Generate application key
+php artisan key:generate
+
+# 7. Configure .env (DB credentials, app name, etc.)
+
+# 8. Run migrations 
+php artisan migrate
+
+# 9. Create symbolic link for storage
+php artisan storage:link
+
+# 10. Run the development server
+php artisan serve
