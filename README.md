@@ -1,4 +1,4 @@
-# Laravel Blog CMS
+# Laravel Blog Site Development
 
 A complete Blog Content Management System (CMS) built with Laravel. It includes full control over blog content, categories, pages, media, and site settings — from both frontend and backend.
 
