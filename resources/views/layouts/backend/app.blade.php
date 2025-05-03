@@ -192,16 +192,6 @@
     });
   });
 </script>
-<!-- TinyMSC load for editor -->
-<script src="{{asset('/backend')}}/plugins/tiny-msc/jquery.tinymce.js" type="text/javascript"></script>
-  <script type="text/javascript">
-        $(document).ready(function () {
-            setupTinyMCE();
 
-            $('input[type="checkbox"]').fancybutton();
-            $('input[type="radio"]').fancybutton();
-        });
-</script>
-<!-- TinyMSC load for editor -->
 </body>
 </html>
