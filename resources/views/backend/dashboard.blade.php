@@ -1,5 +1,5 @@
  @vite(['resources/css/app.css', 'resources/js/app.js'])
-<title>Dashboard | Eloquent</title>
+<title>Dashboard</title>
 <x-backend.app-layout>
     <!-- Content Header (Page header) -->
     <div class="row mb-2">

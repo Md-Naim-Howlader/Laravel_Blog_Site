@@ -16,6 +16,6 @@
             </div>
         @endforeach
      @else
-       <h3 class="bg-red-500 p-5 rounded-sm text-white text-xl">No Post found in <b class="text-2xl">{{$searchtext}}</b> Search text !</h3>
+       <h3 class="bg-yellow-400 p-5 rounded-sm text-white text-xl">No Data found in <b class="text-2xl">{{$searchtext}}</b> Search!</h3>
      @endif
 </x-frontend.app-layout>

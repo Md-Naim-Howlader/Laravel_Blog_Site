@@ -1,8 +1,7 @@
     @php
          use Illuminate\Support\Str;
     @endphp
-
-
+<title>Read Inbox - Dashboard</title>
     <x-backend.app-layout>
         <!-- Content Header (Page header) -->
         <section class="content-header">

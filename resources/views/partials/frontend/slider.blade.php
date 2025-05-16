@@ -1,6 +1,6 @@
 <div class="w-full">
     <!-- Full width container -->
-    <div class="swiper mySwiper w-full h-[60vh] relative">
+    <div class="swiper mySwiper w-full h-[400px]  relative">
         <!-- Full-width slides -->
         <div class="swiper-wrapper">
             <div class="swiper-slide">
@@ -11,6 +11,15 @@
             </div>
             <div class="swiper-slide">
                 <img src="{{asset('storage')}}/uploads/slider/slider-3.jpg" alt="" class="w-full h-full object-cover">
+            </div>
+            <div class="swiper-slide">
+                <img src="{{asset('storage')}}/uploads/slider/slider-4.jpg" alt="" class="w-full h-full object-cover">
+            </div>
+            <div class="swiper-slide">
+                <img src="{{asset('storage')}}/uploads/slider/slider-5.jpg" alt="" class="w-full h-full object-cover">
+            </div>
+            <div class="swiper-slide">
+                <img src="{{asset('storage')}}/uploads/slider/slider-6.jpg" alt="" class="w-full h-full object-cover">
             </div>
         </div>
 

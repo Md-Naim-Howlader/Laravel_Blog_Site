@@ -1,3 +1,4 @@
+ <title>Edit Category - Dashboard</title>
  @vite(['resources/css/app.css', 'resources/js/app.js'])
 <x-backend.app-layout>
     <x-slot name="header">

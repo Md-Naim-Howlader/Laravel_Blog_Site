@@ -5,7 +5,7 @@
 <x-frontend.app-layout>
 
      @if ($posts->isEmpty())
-         <h3 class="bg-red-500 p-5 rounded-sm text-white text-xl">No Post Avilbale in <b>{{$category->category_name}}</b> category !</h3>
+         <h3 class="bg-yellow-400 p-5 rounded-sm text-white text-xl">No Post Avilbale in <b>{{$category->category_name}}</b> category !</h3>
      @else
          @foreach ($posts as $post)
             <div class="bg-white shadow-lg rounded p-5 mb-8">

@@ -1,4 +1,4 @@
-
+<title>Posts - Dashboard</title>
 <x-backend.app-layout>
 
     <div class="bg-white" >

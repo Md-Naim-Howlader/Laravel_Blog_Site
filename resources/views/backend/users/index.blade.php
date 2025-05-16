@@ -1,3 +1,4 @@
+<title>Users info - Dashboard</title>
 <x-backend.app-layout>
     <div class="card">
               <div class="card-header">

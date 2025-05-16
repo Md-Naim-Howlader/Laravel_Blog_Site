@@ -1,3 +1,4 @@
+<title>Edit Copyright - Dashboard</title>
 <x-backend.app-layout>
     <div>
         <div class="card card-primary shadow-none">

@@ -1,3 +1,4 @@
+<title>Edit Page- Dashboard</title>
 <x-backend.app-layout>
 <div class="border bg-white shadow-sm sm:rounded-lg">
 <div class="container mx-auto">

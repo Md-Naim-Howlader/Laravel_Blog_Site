@@ -21,24 +21,24 @@
   <link rel="stylesheet" href="{{ asset('backend') }}/plugins/toastr/toastr.min.css">
   <link rel="stylesheet" href="{{ asset('backend') }}/plugins/sweetalert2/sweetalert2.min.css">
 
-  <style>
-    .note-editable {
-      min-height: 150px;
-      padding: 10px;
-    }
-    .note-toolbar {
-      display: flex !important;
-      visibility: visible !important;
-      opacity: 1 !important;
-    }
-    .note-btn-group .note-btn {
-      border-color: rgba(0,0,0,.2);
-      padding: .28rem .65rem;
-      font-size: 13px;
-      background-color: #ffffff;
-      color: #000;
-    }
-  </style>
+    <style>
+      .note-editable {
+        min-height: 150px;
+        padding: 10px;
+      }
+      .note-toolbar {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+      }
+      .note-btn-group .note-btn {
+        border-color: rgba(0,0,0,.2);
+        padding: .28rem .65rem;
+        font-size: 13px;
+        background-color: #ffffff;
+        color: #000;
+      }
+    </style>
 
   {{-- tailwind css --}}
   @vite(['resources/css/app.css', 'resources/js/app.js'])

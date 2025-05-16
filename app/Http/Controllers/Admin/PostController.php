@@ -114,10 +114,8 @@ class PostController extends Controller
         // set data
         $post->subcategory_id = $request->subcategory_id;
         $post->category_id = $catId;
-        $post->user_id = Auth::user()->id;
         $post->title = $request->title;
         $post->slug = $slug;
-        $post->author = Auth::user()->name;
         $post->description = $request->description;
         $post->post_date = $request->post_date;
         $post->tags = $request->tags;

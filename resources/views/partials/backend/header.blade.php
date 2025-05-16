@@ -1,9 +1,19 @@
 @php
     use Illuminate\Support\Facades\DB;
     use App\Models\Inbox;
+    use App\Models\Post;
+    use App\Models\User;
     use Illuminate\Support\Str;
     $totalUnseenInbox = Inbox::where('status', "unseen")->count();
+    $latestInboxTime = Inbox::where("status", "unseen")->latest()->take(1)->first();
     $latestInbox = Inbox::where('status', 'unseen')->latest()->take(3)->get();
+    // post
+     $totalPost = Inbox::count();
+     $lastPostTime = Post::latest()->take(1)->first();
+     //  user
+     $totalUser = Auth::user()->count();
+     $lastUserTime = User::latest()->take(1)->first();
+
 @endphp
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
@@ -104,24 +114,24 @@
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="far fa-bell"></i>
-          <span class="badge badge-warning navbar-badge">15</span>
+          <span class="badge badge-warning navbar-badge">{{$totalUnseenInbox + $totalUser + $totalPost}}</span>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <span class="dropdown-item dropdown-header">15 Notifications</span>
+          <span class="dropdown-item dropdown-header">{{$totalUnseenInbox + $totalUser + $totalPost}} Notifications</span>
           <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-envelope mr-2"></i> 4 new messages
-            <span class="float-right text-muted text-sm">3 mins</span>
+          <a href="{{route('admin.mailbox')}}" class="dropdown-item">
+            <i class="fas fa-envelope mr-2"></i> {{$totalUnseenInbox}} new messages
+            <span class="float-right text-muted text-sm">{{$latestInboxTime->created_at->diffForHumans()}}</span>
           </a>
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item">
-            <i class="fas fa-users mr-2"></i> 8 friend requests
-            <span class="float-right text-muted text-sm">12 hours</span>
+            <i class="fas fa-users mr-2"></i> {{$totalUser}} new users
+            <span class="float-right text-muted text-sm">{{$lastUserTime->created_at->diffForHumans()}}</span>
           </a>
           <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-file mr-2"></i> 3 new reports
-            <span class="float-right text-muted text-sm">2 days</span>
+          <a href="{{route('post.index')}}" class="dropdown-item">
+            <i class="fas fa-file mr-2"></i> {{$totalPost}} new posts
+            <span class="float-right text-muted text-sm">{{$lastPostTime->created_at->diffForHumans()}}</span>
           </a>
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>

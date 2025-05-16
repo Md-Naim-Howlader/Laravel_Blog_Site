@@ -1,5 +1,5 @@
 <?php
-use App\Http\Controllers\Admin\{CategoryController,SubCategoryController, PostController, PageController, SiteSettingController, InboxController};
+use App\Http\Controllers\Admin\{CategoryController,SubCategoryController, PostController, PageController, SiteSettingController, InboxController, SliderController};
 use App\Http\Controllers\{FrontendController, BackendController, UserController};
 use Illuminate\Support\Facades\Route;
 
@@ -51,3 +51,6 @@ Route::get("/admin/mail/read/{id}",  [InboxController::class, "show"])->name("ad
 Route::get("/admin/mail/compose",  [InboxController::class, "create"])->name("admin.composemail");
 Route::get("/admin/mail/reply/{id}",  [InboxController::class, "replyMail"])->name("admin.replymail");
 Route::get("/admin/mail/delete/{id}",  [InboxController::class, "delete"])->name("admin.deletemail");
+
+// slider route
+Route::resource('slider', SliderController::class);

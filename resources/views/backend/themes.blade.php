@@ -1,9 +1,16 @@
+<title>Theme change - Dashboard</title>
 <x-backend.app-layout>
     <div>
         <form action="{{route('theme.store')}}" method="POST">
             @csrf
             <h3 class="text-xl font-semibold mb-5">Select Themes</h3>
 
+            <div>
+                <input @if ($theme->theme_name == "default white")
+                    checked
+                @endif type="radio" name="theme_name" id="default" value="default white">
+                <label for="default">Default White</label>
+            </div>
             <div>
                 <input @if ($theme->theme_name == "red")
                     checked

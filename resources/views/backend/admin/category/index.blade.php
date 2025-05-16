@@ -1,4 +1,4 @@
-
+<title>Categories - Dashboard</title>
 <x-backend.app-layout>
 
     <div class="bg-white" >

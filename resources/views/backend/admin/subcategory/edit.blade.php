@@ -1,4 +1,5 @@
  @vite(['resources/css/app.css', 'resources/js/app.js'])
+<title>Edit Subcategory - Dashboard</title>
 <x-backend.app-layout>
 
     <div class=" bg-white  border shadow-sm sm:rounded-lg ">

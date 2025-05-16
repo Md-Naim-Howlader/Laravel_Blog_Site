@@ -48,8 +48,9 @@
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-globe"></i>
+
               <p>
-                Setings
+                 Setings
                 <i class="fas fa-angle-left right"></i>
                 <span class="badge badge-info right">3</span>
               </p>
@@ -59,7 +60,7 @@
               <li class="nav-item">
                 <a href="{{route('site.edit-logo_favicon')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Manage Logo & Favicon</p>
+                  <p> Name, Logo & Favicon</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -156,7 +157,7 @@
 
             </ul>
           </li>
-          <li class="nav-item">
+          <li class="nav-item ">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-columns"></i>
               <p>
@@ -176,6 +177,31 @@
                 <a href="{{route('post.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Manage Posts</p>
+                </a>
+              </li>
+
+            </ul>
+          </li>
+          <li class="nav-item" >
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-sliders-h"></i>
+              <p>
+                Slider Options
+                <i class="fas fa-angle-left right"></i>
+                <span class="badge badge-info right">2</span>
+              </p>
+            </a>
+            <ul class="nav nav-treeview ">
+              <li class="nav-item">
+                <a href="{{route('slider.create')}}" class="nav-link">
+                  <i class="fas fa-plus nav-icon"></i>
+                  <p>Add Slider</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Slider List</p>
                 </a>
               </li>
 

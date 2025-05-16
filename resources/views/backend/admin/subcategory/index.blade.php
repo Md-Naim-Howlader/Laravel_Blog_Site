@@ -1,4 +1,4 @@
-
+<title>Subcategories - Dashboard</title>
 <x-backend.app-layout>
     <div class="bg-white" >
         <div class="row mb-2 mx-2">

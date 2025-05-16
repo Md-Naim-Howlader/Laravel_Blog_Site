@@ -10,6 +10,7 @@
         box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.25);
     }
 </style>
+<title>Create Post - Dashboard</title>
 <x-backend.app-layout>
 
     <div class="border bg-white shadow-sm sm:rounded-lg">

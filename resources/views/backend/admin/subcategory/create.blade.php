@@ -1,5 +1,5 @@
+<title>Create Subcategory - Dashboard</title>
 <x-backend.app-layout>
-
     <div class=" bg-white  border shadow-sm sm:rounded-lg" >
         <div class="container mx-auto h-screen">
             <div class="shadow-md border my-2">
