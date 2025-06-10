@@ -23,12 +23,7 @@
                 @endif type="radio" name="theme_name" id="green" value="green">
                 <label for="green">Green</label>
             </div>
-            <div>
-                <input @if ($theme->theme_name == "blue")
-                    checked
-                @endif type="radio" name="theme_name" id="blue" value="blue">
-                <label for="blue">Blue</label>
-            </div>
+
             <div>
                 <input class="btn btn-primary p-2 w-28" type="submit" value="Save Changes">
             </div>

@@ -58,17 +58,6 @@ class PostController extends Controller
 
         ];
 
-
-        //__ Event Calling PostProcessed start __//
-        // $event_data = [
-        //     "title" => $request->title,
-        //     "author" => Auth::user()->name,
-        //     "date" => date("d F Y", strtotime($request->post_date))
-        // ];
-
-        // event(new PostProcessed($event_data));
-        //__ Event Calling PostProcessed start __//
-
         $photo = $request->image;
 
         if ($photo) {

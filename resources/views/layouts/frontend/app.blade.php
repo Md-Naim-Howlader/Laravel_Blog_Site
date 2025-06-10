@@ -5,10 +5,13 @@
     use App\Models\Post;
     use Illuminate\Support\Str;
 
+
     $pages = Page::all();
     $site = SiteSetting::find("1");
     $categories = DB::table('categories')->get();
     $posts = Post::latest()->take(5)->get();
+    $theme = DB::table("themes")->where("id", 1)->first()->theme_name;
+
 @endphp
 
 <!DOCTYPE html>

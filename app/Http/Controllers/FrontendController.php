@@ -52,7 +52,7 @@ class FrontendController extends Controller
         return view("frontend.contact");
     }
     public function allpost() {
-        $posts = Post::paginate(3);
+        $posts = Post::paginate(5);
         return view("frontend.allpost", compact("posts"));
     }
      public function contactStore(Request $request) {
@@ -88,6 +88,9 @@ class FrontendController extends Controller
                 return redirect()->back()->with('error', 'Message could not be submitted. Please try again.');
             }
         }
+    }
+    public function getTheme() {
+
     }
 
 }
